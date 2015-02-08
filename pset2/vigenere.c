@@ -9,10 +9,29 @@ int main(int argc, string argv[])
 {
 
     /* Throw an error if # of arguments isn't 1 */
-    if(argc == 2)
-    {
-    /* printf("gimme a phrase: "); */
+  if(argc != 2)
+  {
+    printf("Wrong numba of arguments! \n");
+    return 1;
+  }
+  else
+  {
     string key = argv[1];
+
+    /* Check to see if key is made only of alphabetical characters */
+    for(int k = 0; k < strlen(key) - 1; k++)
+    {
+        if( isalpha(key[k]) == false )
+        {
+          printf("Only alphabetical characters! \n");
+          return 1;
+        }
+        else
+        {}
+    }
+
+    /* printf("gimme a phrase: "); */
+
     string phrase = GetString();
     int phrase_length = strlen(phrase);
     int key_length = strlen(key);
@@ -42,9 +61,5 @@ int main(int argc, string argv[])
 
     printf("\n");
     }
-    else
-    {
-    printf("Wrong numba of arguments! \n");
-    return 1;
-    }
-}
+  }
+
